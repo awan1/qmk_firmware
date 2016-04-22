@@ -24,4 +24,7 @@ Interesting contributions:
 * I've modified the LED code to represent the current layer in binary. So with
   the 3 LEDs on the Ergodox EZ, I can represent 7 layers on top of the base
   layer. 
+  * This naturally lends itself to having 8 layers that can be "active"; 
+    layers 8 and above can't be represented by the LEDs, so we should use 
+    them for temporary layers that are used in transitions or something. 
 
