@@ -19,6 +19,8 @@ Other design notes:
   ("coding") and mouse/media layers
 * I've left buttons that I don't know what to do with yet as transparent,
   so I can think about what I want to use them for
+* Switched [] and () on symbol layer since the parens are available on base
+  layer
 
 Interesting contributions:
 * I've modified the LED code to represent the current layer in binary. So with
@@ -27,4 +29,8 @@ Interesting contributions:
   * This naturally lends itself to having 8 layers that can be "active"; 
     layers 8 and above can't be represented by the LEDs, so we should use 
     them for temporary layers that are used in transitions or something. 
+* Reorganized the bottom right row into arrow keys in the vim layout, since
+  I usually just use the modifiers on the left side. If I find myself wanting
+  right-handed-only modifier combinations, I could introduce a layer with them
+  placed on the bottom row...
 
