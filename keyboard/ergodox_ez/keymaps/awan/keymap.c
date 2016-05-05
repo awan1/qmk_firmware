@@ -26,10 +26,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| Hyper|           | Meh  |------+------+------+------+------+--------|
  * | LShift |   :  |   Q  |   J  |   K  |   X  |      |           |      |   B  |   M  |   W  |   V  |   Z  | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |LCtrl |      |      | LAlt | LGUI |                                       | Left | Down |  Up  | Right| (L1) |
+ *   |LCtrl |      |      | LAlt | LGUI |                                       | Left | Down |  Up  | Right| ~L1  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        | (L4) | ~L1  |       | ~L3  | ~L5    |
+ *                                        | (L4) | (L1) |       | ~L3  | ~L5    |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Home |       | PgUp |        |      |
  *                                 | Space| Esc  |------|       |------|  (L2)  |Enter |
@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_BSPC,        KC_A,           KC_O,     KC_E,    KC_U,   KC_I,
         KC_LSFT,        KC_SCLN,        KC_Q,     KC_J,    KC_K,   KC_X,   ALL_T(KC_NO),
         KC_LCTL,        KC_TRNS,        KC_TRNS,  KC_LALT, KC_LGUI,
-                                                    MO(4),     TG(1),
+                                                    MO(4),     MO(1),
                                                                KC_HOME,
                                                KC_SPC, KC_ESC, KC_END,
         // right hand
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS,     KC_F,   KC_G,   KC_C,   KC_R,   KC_L,       KC_SLSH,
                      KC_D,   KC_H,   KC_T,   KC_N,   KC_S,       KC_MINS,
         MEH_T(KC_NO),KC_B,   KC_M,   KC_W,   KC_V,   KC_Z,       KC_RSFT,
-                             KC_LEFT,KC_DOWN ,KC_UP, KC_RGHT,    MO(1),
+                             KC_LEFT,KC_DOWN ,KC_UP, KC_RGHT,    TG(1),
         TG(3)  ,         TG(5), 
         KC_PGUP,
         KC_PGDN, MO(2),  KC_ENT
@@ -198,13 +198,13 @@ KEYMAP(
  * LH_CMD_MAC upon press.
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Redo?  |Undo? |Cut?  |Copy? |Pste? |      |      |           |      |      |      |      |      |      |        |
+ * | Redo   | Undo | Cut  | Copy |Paste |VolUp |      |           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      |      |Ctl(U)|      |VolUp |      |           |      |      |      |      |      |      |        |
+ * |        |Enter |MPrev |Ctl(U)|MNext |VolDn |      |           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |Ctl(L)|Ctl(D)|Ctl(R)|VolDn |------|           |------|      |      |      |      |      |        |
+ * |        |MPlay |Ctl(L)|Ctl(D)|Ctl(R)| Mute |------|           |------|      |      |      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      | Prev | Next | Play | Mute |      |           |      |      |      |      |      |      |        |
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |      |      |      |      |      |                                       |      |      |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
@@ -218,11 +218,11 @@ KEYMAP(
  */
 // Blank
 KEYMAP(
-       KC_TRNS, KC_TRNS, KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS, KC_TRNS,       LCTL(KC_UP),   KC_TRNS,       KC_VOLU, KC_TRNS,
-       KC_TRNS, KC_TRNS, LCTL(KC_LEFT), LCTL(KC_DOWN), LCTL(KC_RGHT), KC_VOLD,
-       KC_TRNS, KC_TRNS, KC_MPRV,       KC_MNXT,       KC_MPLY,       KC_MUTE,  KC_TRNS, 
-       KC_TRNS, KC_TRNS, KC_TRNS,       KC_TRNS,       KC_TRNS,
+       LSFT(LGUI(KC_Z)), LGUI(KC_Z), LGUI(KC_X),    LGUI(KC_C),    LGUI(KC_V),    KC_VOLU, KC_TRNS,
+       KC_TRNS,          KC_ENT,     KC_MPRV,       LCTL(KC_UP),   KC_MNXT,       KC_VOLD, KC_TRNS,
+       KC_TRNS,          KC_MPLY,    LCTL(KC_LEFT), LCTL(KC_DOWN), LCTL(KC_RGHT), KC_MUTE,
+       KC_TRNS,          KC_TRNS,    KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS, 
+       KC_TRNS,          KC_TRNS,    KC_TRNS,       KC_TRNS,       KC_TRNS,
                                            KC_TRNS, KC_TRNS,
                                                     KC_TRNS,
                                   KC_TRNS, KC_TRNS, KC_TRNS,
