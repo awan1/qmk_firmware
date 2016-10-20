@@ -10,7 +10,7 @@
  * Layers:
  * 0-7: layers that might want to be activated
  * 8+: utility layers, those that should be used for temporary actions.
- * 
+ *
  * This difference exists because we have 3 LEDs to show 8 layers in binary;
  * so when we get to layers 8+, we don't have a way to show them with LEDs.
  */
@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      KC_D,   KC_H,   KC_T,   KC_N,   KC_S,       KC_MINS,
         MEH_T(KC_NO),KC_B,   KC_M,   KC_W,   KC_V,   KC_Z,       KC_RSFT,
                              KC_LEFT,KC_DOWN ,KC_UP, KC_RGHT,    TG(1),
-        TG(3)  ,         TG(5), 
+        TG(3)  ,         TG(5),
         KC_PGUP,
         KC_PGDN, MO(2),  KC_ENT
     ),
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |   !  |   @  |   {  |   }  |   |  |      |           |      |   Up |   7  |   8  |   9  |   *  |   F12  |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |   #  |   $  |   [  |   ]  |   `  |------|           |------| Down |   4  |   5  |   6  |   +  |   \    |
+ * |        |   #  |   $  |   [  |   ]  |   \  |------|           |------| Down |   4  |   5  |   6  |   +  |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |   %  |   ^  |   (  |   )  |   ~  |      |           |      |   &  |   1  |   2  |   3  |   /  |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // left hand
        KC_TRNS,KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_TRNS,
        KC_TRNS,KC_EXLM,KC_AT,  KC_LCBR,KC_RCBR,KC_PIPE,KC_TRNS,
-       KC_TRNS,KC_HASH,KC_DLR, KC_LBRC,KC_RBRC,KC_GRV,
+       KC_TRNS,KC_HASH,KC_DLR, KC_LBRC,KC_RBRC,KC_BSLS,
        KC_TRNS,KC_PERC,KC_CIRC,KC_LPRN,KC_RPRN,KC_TILD,KC_TRNS,
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
                                        KC_TRNS,KC_TRNS,
@@ -103,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 /* Keymap 2: Media, mouse, navigation
  * The ctrl-arrow key combinations are for space switching
- * Acl2 makes the mouse accelerate faster. 
+ * Acl2 makes the mouse accelerate faster.
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
@@ -138,7 +138,7 @@ KEYMAP(
        KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS,  KC_TRNS, KC_TRNS, LCTL(KC_UP), KC_TRNS, KC_TRNS, KC_TRNS,
                  KC_TRNS, LCTL(KC_LEFT), LCTL(KC_DOWN), LCTL(KC_RGHT), KC_TRNS, KC_TRNS,
-       KC_TRNS,  KC_TRNS, KC_MPRV, KC_MNXT, KC_MPLY, KC_TRNS, KC_TRNS, 
+       KC_TRNS,  KC_TRNS, KC_MPRV, KC_MNXT, KC_MPLY, KC_TRNS, KC_TRNS,
                           KC_VOLD, KC_VOLU, KC_MUTE, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
@@ -191,20 +191,27 @@ KEYMAP(
  * Controls for when the right hand is on the mouse.
  * Currently space switchers, music, and volume.
  * Would like the thumb triggers to do interesting things too. See what else I do with one hand on the mouse.
- * Challenge with the undo/copy/paste etc commands is how to make them work across OSX and PC. Could have a 
+ * Challenge with the undo/copy/paste etc commands is how to make them work across OSX and PC. Could have a
  * modifier layer/command that toggles between using CTL and GUI for the commands... But it might make more
  * sense to just reprogram these layers (e.g. set a variable) based on a button. So I hit this button when I
  * start using a PC, which maps the LH_CMD layer to LH_CMD_PC or something, and then that button toggles to
  * LH_CMD_MAC upon press.
  *
+ * Cmd(w) is to close a browser tab
+ * Ctl(L/R) is for spaces
+ * Ctl(U/D) is for mission control / application windows
+ * M* is for music
+ * Cmd(L/R) is for browser back/forward
+ * Cmd(r) is for browser refresh
+ *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Redo   | Undo | Cut  | Copy |Paste |VolUp |      |           |      |      |      |      |      |      |        |
+ * | Redo   | Undo | Cut  | Copy |Paste |VolUp |Cmd(w)|           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |Enter |MPrev |Ctl(U)|MNext |VolDn |      |           |      |      |      |      |      |      |        |
+ * |        |Enter |MPrev |Ctl(U)|MNext |VolDn |Cmd(t)|           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |MPlay |Ctl(L)|Ctl(D)|Ctl(R)| Mute |------|           |------|      |      |      |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |        |      |Cmd(L)|Cmd(r)|Cmd(R)|      |      |           |      |      |      |      |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |      |      |      |      |      |                                       |      |      |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
@@ -218,10 +225,10 @@ KEYMAP(
  */
 // Blank
 KEYMAP(
-       LSFT(LGUI(KC_Z)), LGUI(KC_Z), LGUI(KC_X),    LGUI(KC_C),    LGUI(KC_V),    KC_VOLU, KC_TRNS,
-       KC_TRNS,          KC_ENT,     KC_MPRV,       LCTL(KC_UP),   KC_MNXT,       KC_VOLD, KC_TRNS,
+       LSFT(LGUI(KC_Z)), LGUI(KC_Z), LGUI(KC_X),    LGUI(KC_C),    LGUI(KC_V),    KC_VOLU, LGUI(KC_W),
+       KC_TRNS,          KC_ENT,     KC_MPRV,       LCTL(KC_UP),   KC_MNXT,       KC_VOLD, LGUI(KC_T),
        KC_TRNS,          KC_MPLY,    LCTL(KC_LEFT), LCTL(KC_DOWN), LCTL(KC_RGHT), KC_MUTE,
-       KC_TRNS,          KC_TRNS,    KC_TRNS,       KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS, 
+       KC_TRNS,          KC_TRNS,    LGUI(KC_LEFT), LGUI(KC_R),    LGUI(KC_RIGHT),KC_TRNS, KC_TRNS,
        KC_TRNS,          KC_TRNS,    KC_TRNS,       KC_TRNS,       KC_TRNS,
                                            KC_TRNS, KC_TRNS,
                                                     KC_TRNS,
