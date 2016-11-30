@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | (L4) | (L1) |       | ~L3  | ~L5    |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Home |       | PgUp |        |      |
- *                                 | Space| Esc  |------|       |------|  (L2)  |Enter |
+ *                                 | Space| Esc  |------|       |------|  BkSp  |Enter |
  *                                 |      |      | End  |       | PgDn |        |      |
  *                                 `--------------------'       `----------------------'
  */
@@ -56,7 +56,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              KC_LEFT,KC_DOWN ,KC_UP, KC_RGHT,    TG(1),
         TG(3)  ,         TG(5),
         KC_PGUP,
-        KC_PGDN, MO(2),  KC_ENT
+        // BSP was MO(2)
+        KC_PGDN, KC_BSPC,  KC_ENT
     ),
 /* Keymap 1: Symbol Layer
  * Swapped placement of [] and () since the parens are available on base layer
